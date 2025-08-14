@@ -57,22 +57,22 @@
   --color-primary-800: #1e40af;
   --color-primary-900: #1e3a8a;
   
-  /* Cores de fundo */
-  --color-bg-primary: #0f172a;
-  --color-bg-secondary: #1e293b;
-  --color-bg-tertiary: #334155;
-  --color-bg-card: #1e293b;
-  --color-bg-overlay: rgba(0, 0, 0, 0.5);
+  /* Cores de fundo - estilo da landing page */
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #0a0a0a;
+  --color-bg-tertiary: #1a1a1a;
+  --color-bg-card: rgba(0, 0, 0, 0.1);
+  --color-bg-overlay: rgba(0, 0, 0, 0.8);
   
   /* Cores de texto */
-  --color-text-primary: #f8fafc;
-  --color-text-secondary: #cbd5e1;
-  --color-text-tertiary: #94a3b8;
-  --color-text-inverse: #0f172a;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #e0e0e0;
+  --color-text-tertiary: #a0a0a0;
+  --color-text-inverse: #000000;
   
   /* Cores de borda */
-  --color-border-primary: #334155;
-  --color-border-secondary: #475569;
+  --color-border-primary: #1a1a1a;
+  --color-border-secondary: #0a0a0a;
   --color-border-accent: #3b82f6;
   
   /* Cores de estado */
@@ -82,10 +82,10 @@
   --color-info: #3b82f6;
   
   /* Sombras */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.7), 0 2px 4px -1px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7), 0 4px 6px -2px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 10px 10px -5px rgba(0, 0, 0, 0.6);
 }
 
 /* Transições suaves para mudança de tema */

@@ -3,9 +3,25 @@ import styled from '@emotion/styled';
 export const LayoutContainer = styled.div`
   display: flex;
   min-height: 100vh;
-  background-color: var(--color-bg-primary);
+  background: var(--color-bg-primary);
   color: var(--color-text-primary);
   transition: all 0.3s ease;
+  position: relative;
+  
+  &[data-theme="dark"] {
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 20%, #1a1a1a 40%, #0a0a0a 60%, #000000 100%);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(26, 26, 26, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+  }
 `;
 
 export const Sidebar = styled.aside<{ $isOpen?: boolean }>`
@@ -36,9 +52,10 @@ export const MainContent = styled.main`
   flex: 1;
   margin-left: 280px;
   padding: 30px;
-  background: var(--color-bg-primary);
+  background: var(--color-bg-card);
   color: var(--color-text-primary);
   transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
   
   @media (max-width: 768px) {
     margin-left: 0;
@@ -181,8 +198,9 @@ export const Overlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--color-bg-overlay);
   z-index: 999;
+  backdrop-filter: blur(10px);
   
   @media (max-width: 768px) {
     display: ${props => props.className?.includes('active') ? 'block' : 'none'};
@@ -196,13 +214,14 @@ export const MobileHeader = styled.header`
   left: 0;
   right: 0;
   height: 60px;
-  background: var(--sidebar-bg, #1a1a1a);
-  border-bottom: 1px solid var(--sidebar-border, #333333);
+  background: var(--color-bg-overlay);
+  border-bottom: 1px solid var(--sidebar-border, #1a1a1a);
   z-index: 1000;
   padding: 0 20px;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
   
   @media (max-width: 768px) {
     display: flex;

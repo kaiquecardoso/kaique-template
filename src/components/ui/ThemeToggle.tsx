@@ -41,14 +41,7 @@ export const ThemeToggle: React.FC = () => {
         </motion.button>
       </div>
       
-      {/* Label sutil */}
-      <div className="text-center">
-        <span className={`text-xs font-medium ${
-          theme === 'light' ? 'text-gray-600' : 'text-gray-400'
-        }`}>
-          Tema do Sistema
-        </span>
-      </div>
+    
     </div>
   );
 };
