@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import AuthLayout from '../../../components/layouts/AuthLayout';
+import { ThemeCard } from '../../../components/ui/ThemeCard';
+import { useTheme } from '../../../contexts/ThemeContext';
 import {
   ConfigContainer,
   PageHeader,
@@ -12,17 +14,19 @@ import {
   Select,
   Switch,
   SaveButton,
-  ConfigGrid
+  ConfigGrid,
+  ThemeDemoSection
 } from './styles';
 
 const ConfiguracaoPage: React.FC = () => {
+  const { theme, setTheme } = useTheme();
   const [config, setConfig] = useState({
     companyName: 'Kaique Template',
     email: 'admin@example.com',
     timezone: 'America/Sao_Paulo',
     language: 'pt-BR',
     notifications: true,
-    darkMode: false,
+    darkMode: theme === 'dark',
     autoSave: true
   });
 
@@ -31,6 +35,11 @@ const ConfiguracaoPage: React.FC = () => {
       ...prev,
       [field]: value
     }));
+    
+    // Sincroniza o tema com a configuração
+    if (field === 'darkMode') {
+      setTheme(value ? 'dark' : 'light');
+    }
   };
 
   const handleSave = () => {
@@ -122,6 +131,45 @@ const ConfiguracaoPage: React.FC = () => {
             </ConfigCard>
           </ConfigSection>
         </ConfigGrid>
+
+        <ThemeDemoSection>
+          <h2>Demonstração do Sistema de Temas</h2>
+          <p>Veja como os componentes se adaptam automaticamente ao tema selecionado:</p>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', marginTop: '20px' }}>
+            <ThemeCard 
+              title="Card Primário" 
+              description="Este é um exemplo de card com variante primária"
+              variant="primary"
+            >
+              <p>O conteúdo se adapta automaticamente ao tema atual.</p>
+            </ThemeCard>
+            
+            <ThemeCard 
+              title="Card Secundário" 
+              description="Este é um exemplo de card com variante secundária"
+              variant="secondary"
+            >
+              <p>As cores mudam suavemente entre os temas.</p>
+            </ThemeCard>
+            
+            <ThemeCard 
+              title="Card de Destaque" 
+              description="Este é um exemplo de card com variante de destaque"
+              variant="accent"
+            >
+              <p>Perfeito para informações importantes.</p>
+            </ThemeCard>
+          </div>
+          
+          <div style={{ marginTop: '30px', padding: '20px', borderRadius: '8px', backgroundColor: 'var(--color-bg-secondary)', border: '1px solid var(--color-border-primary)' }}>
+            <h3>Informações do Tema</h3>
+            <p><strong>Tema atual:</strong> {theme === 'dark' ? '🌙 Escuro' : '☀️ Claro'}</p>
+            <p><strong>Toggle de tema:</strong> Localizado na sidebar, na parte inferior</p>
+            <p><strong>Persistência:</strong> O tema é salvo automaticamente no localStorage</p>
+            <p><strong>Preferência do sistema:</strong> Detecta automaticamente a preferência do usuário</p>
+          </div>
+        </ThemeDemoSection>
       </ConfigContainer>
     </AuthLayout>
   );

@@ -2,17 +2,19 @@ import styled from '@emotion/styled';
 
 export const ConfigContainer = styled.div`
   h1 {
-    color: #2c3e50;
+    color: var(--color-text-primary);
     margin: 0;
     font-size: 2.2rem;
     font-weight: 700;
+    transition: color 0.3s ease;
   }
   
   h2 {
-    color: #34495e;
+    color: var(--color-text-secondary);
     margin-bottom: 20px;
     font-size: 1.5rem;
     font-weight: 600;
+    transition: color 0.3s ease;
   }
 `;
 
@@ -24,8 +26,8 @@ export const PageHeader = styled.div`
 `;
 
 export const SaveButton = styled.button`
-  background: #27ae60;
-  color: white;
+  background: var(--color-success);
+  color: var(--color-text-inverse);
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
@@ -34,8 +36,9 @@ export const SaveButton = styled.button`
   transition: all 0.3s ease;
   
   &:hover {
-    background: #229954;
+    background: #059669;
     transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
   }
 `;
 
@@ -43,6 +46,7 @@ export const ConfigGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 30px;
+  margin-bottom: 40px;
 `;
 
 export const ConfigSection = styled.div`
@@ -52,10 +56,12 @@ export const ConfigSection = styled.div`
 `;
 
 export const ConfigCard = styled.div`
-  background: white;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-primary);
   border-radius: 12px;
   padding: 25px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
 `;
 
 export const ConfigForm = styled.div`
@@ -69,7 +75,8 @@ export const FormGroup = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 15px 0;
-  border-bottom: 1px solid #f1f3f4;
+  border-bottom: 1px solid var(--color-border-primary);
+  transition: all 0.3s ease;
   
   &:last-child {
     border-bottom: none;
@@ -77,37 +84,43 @@ export const FormGroup = styled.div`
 `;
 
 export const Label = styled.label`
-  color: #495057;
+  color: var(--color-text-secondary);
   font-weight: 500;
   font-size: 0.95rem;
+  transition: color 0.3s ease;
 `;
 
 export const Input = styled.input`
   padding: 8px 12px;
-  border: 2px solid #e1e5e9;
+  border: 2px solid var(--color-border-primary);
   border-radius: 6px;
   font-size: 0.9rem;
   width: 200px;
-  transition: border-color 0.3s ease;
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+  transition: all 0.3s ease;
   
   &:focus {
     outline: none;
-    border-color: #3498db;
+    border-color: var(--color-primary-500);
+    box-shadow: 0 0 0 3px var(--color-primary-100);
   }
 `;
 
 export const Select = styled.select`
   padding: 8px 12px;
-  border: 2px solid #e1e5e9;
+  border: 2px solid var(--color-border-primary);
   border-radius: 6px;
   font-size: 0.9rem;
   width: 200px;
-  background: white;
-  transition: border-color 0.3s ease;
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+  transition: all 0.3s ease;
   
   &:focus {
     outline: none;
-    border-color: #3498db;
+    border-color: var(--color-primary-500);
+    box-shadow: 0 0 0 3px var(--color-primary-100);
   }
 `;
 
@@ -115,14 +128,14 @@ export const Switch = styled.input`
   appearance: none;
   width: 50px;
   height: 26px;
-  background: #ccc;
+  background: var(--color-border-secondary);
   border-radius: 13px;
   position: relative;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
   
   &:checked {
-    background: #27ae60;
+    background: var(--color-success);
   }
   
   &::before {
@@ -130,7 +143,7 @@ export const Switch = styled.input`
     position: absolute;
     width: 22px;
     height: 22px;
-    background: white;
+    background: var(--color-text-inverse);
     border-radius: 50%;
     top: 2px;
     left: 2px;
@@ -139,5 +152,39 @@ export const Switch = styled.input`
   
   &:checked::before {
     transform: translateX(24px);
+  }
+`;
+
+export const ThemeDemoSection = styled.div`
+  margin-top: 40px;
+  padding: 30px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-primary);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  
+  h2 {
+    color: var(--color-text-primary);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  p {
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+  }
+  
+  h3 {
+    color: var(--color-text-primary);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
   }
 `;

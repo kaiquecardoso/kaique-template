@@ -2,41 +2,48 @@ import styled from '@emotion/styled';
 
 export const HomeContainer = styled.div`
   h1 {
-    color: #2c3e50;
-    margin-bottom: 10px;
-    font-size: 2.5rem;
+    color: var(--color-text-primary);
+    margin: 0;
+    font-size: 2.2rem;
     font-weight: 700;
+    transition: color 0.3s ease;
   }
   
   h2 {
-    color: #34495e;
+    color: var(--color-text-secondary);
     margin-bottom: 20px;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 600;
+    transition: color 0.3s ease;
   }
   
   p {
-    color: #7f8c8d;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    color: var(--color-text-tertiary);
+    transition: color 0.3s ease;
   }
 `;
 
 export const WelcomeCard = styled.div`
-  background: white;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-primary);
+  border-radius: 12px;
   padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   margin-bottom: 30px;
-  border-left: 5px solid #3498db;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
   
   h1 {
+    color: var(--color-text-primary);
     margin-bottom: 15px;
+    font-size: 2.2rem;
+    font-weight: 700;
   }
   
   p {
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.6;
     margin: 0;
-    font-size: 1.2rem;
   }
 `;
 
@@ -48,30 +55,30 @@ export const StatsGrid = styled.div`
 `;
 
 export const StatCard = styled.div`
-  background: white;
-  padding: 25px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-primary);
   border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
-  border-left: 4px solid;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 25px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
   
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
   }
 `;
 
 export const StatValue = styled.div`
   font-size: 2.5rem;
   font-weight: 700;
-  color: #2c3e50;
-  margin-bottom: 8px;
+  color: var(--color-text-primary);
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
 `;
 
 export const StatLabel = styled.div`
-  color: #7f8c8d;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  color: var(--color-text-secondary);
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
 `;
