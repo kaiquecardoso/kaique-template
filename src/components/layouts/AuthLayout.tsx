@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from '@tanstack/react-router';
-import { LayoutContainer, Sidebar, MainContent, SidebarHeader, NavItem, SidebarTitle, UserInfo, ThemeToggleContainer, NavSection, NavSectionTitle, MobileToggle, Overlay, MobileHeader, Breadcrumb } from './styles';
+import { LayoutContainer, Sidebar, MainContent, SidebarHeader, NavItem, SidebarTitle, UserInfo, ThemeToggleContainer, LogoutButton, MobileToggle, Overlay, MobileHeader, Breadcrumb } from './styles';
 import { ThemeToggle } from '../ui/ThemeToggle';
 import { useSidebarTheme } from '../../hooks/useSidebarTheme';
+import { useAuth } from '../../hooks/useAuth';
 import { 
   FiHome, 
   FiUsers, 
   FiSettings,
   FiMenu,
-  FiX
+  FiLogOut
 } from 'react-icons/fi';
 
 interface AuthLayoutProps {
@@ -18,6 +19,7 @@ interface AuthLayoutProps {
 const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
   const location = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { logout } = useAuth();
   useSidebarTheme(); // Aplica as cores da sidebar baseadas no tema
   
   const authItems = [
@@ -32,6 +34,10 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
 
   const handleNavClick = () => {
     setIsSidebarOpen(false);
+  };
+
+  const handleLogout = () => {
+    logout();
   };
 
   return (
@@ -62,22 +68,23 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
           </UserInfo>
         </SidebarHeader>
         
-        <NavSection>
-          <NavSectionTitle>Navegação</NavSectionTitle>
-          <nav>
-            {authItems.map((item) => (
-              <Link key={item.path} to={item.path} onClick={handleNavClick}>
-                <NavItem className={isActive(item.path) ? 'active' : ''}>
-                  <span>{item.icon}</span>
-                  {item.label}
-                </NavItem>
-              </Link>
-            ))}
-          </nav>
-        </NavSection>
+        <nav style={{ padding: '16px 0' }}>
+          {authItems.map((item) => (
+            <Link key={item.path} to={item.path} onClick={handleNavClick}>
+              <NavItem className={isActive(item.path) ? 'active' : ''}>
+                <span>{item.icon}</span>
+                {item.label}
+              </NavItem>
+            </Link>
+          ))}
+        </nav>
         
         <ThemeToggleContainer>
           <ThemeToggle />
+          <LogoutButton onClick={handleLogout}>
+            <span><FiLogOut /></span>
+            Sair
+          </LogoutButton>
         </ThemeToggleContainer>
       </Sidebar>
 

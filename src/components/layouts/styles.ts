@@ -25,7 +25,7 @@ export const LayoutContainer = styled.div`
 `;
 
 export const Sidebar = styled.aside<{ $isOpen?: boolean }>`
-  width: 280px;
+  width: 240px;
   background: var(--sidebar-bg, #1a1a1a);
   color: var(--sidebar-text, #ffffff);
   padding: 0;
@@ -40,17 +40,17 @@ export const Sidebar = styled.aside<{ $isOpen?: boolean }>`
   z-index: 1001;
   
   @media (max-width: 768px) {
-    width: 280px;
+    width: 240px;
     position: fixed;
     height: 100vh;
-    left: ${props => props.$isOpen ? '0' : '-280px'};
+    left: ${props => props.$isOpen ? '0' : '-240px'};
     transform: ${props => props.$isOpen ? 'translateX(0)' : 'translateX(-100%)'};
   }
 `;
 
 export const MainContent = styled.main`
   flex: 1;
-  margin-left: 280px;
+  margin-left: 240px;
   padding: 30px;
   background: var(--color-bg-card);
   color: var(--color-text-primary);
@@ -65,7 +65,7 @@ export const MainContent = styled.main`
 `;
 
 export const SidebarHeader = styled.div`
-  padding: 24px 20px;
+  padding: 20px 16px;
   border-bottom: 1px solid var(--sidebar-border, #333333);
   margin-bottom: 0;
   transition: all 0.3s ease;
@@ -73,42 +73,42 @@ export const SidebarHeader = styled.div`
 `;
 
 export const SidebarTitle = styled.h1`
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 8px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 6px;
   color: var(--sidebar-title, #ffffff);
   transition: color 0.3s ease;
   letter-spacing: -0.025em;
 `;
 
 export const UserInfo = styled.div`
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--sidebar-user-text, #a0a0a0);
   transition: color 0.3s ease;
   
   div {
     font-weight: 500;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     color: var(--sidebar-user-name, #d0d0d0);
   }
   
   small {
     color: var(--sidebar-user-email, #808080);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 `;
 
 export const NavItem = styled.a`
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 16px 20px;
+  gap: 12px;
+  padding: 12px 16px;
   color: var(--sidebar-nav-text, #b0b0b0);
   text-decoration: none;
   transition: all 0.2s ease;
-  border-left: 3px solid transparent;
+  border-left: 2px solid transparent;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   
   &:hover {
     background: var(--sidebar-nav-hover, rgba(255, 255, 255, 0.05));
@@ -117,14 +117,15 @@ export const NavItem = styled.a`
   }
   
   &.active {
-    background: var(--sidebar-nav-active, rgba(255, 255, 255, 0.08));
-    color: var(--sidebar-nav-active-text, #ffffff);
-    border-left-color: var(--sidebar-nav-active-border, #888888);
+    background: var(--sidebar-nav-active, rgba(255, 255, 255, 0.1));
+    color: #ffffff !important;
+    border-left-color: #ffffff;
+    font-weight: 600;
   }
   
   span {
-    font-size: 1.1rem;
-    width: 20px;
+    font-size: 1rem;
+    width: 18px;
     text-align: center;
     color: var(--sidebar-nav-icon, #cccccc);
     display: flex;
@@ -132,41 +133,58 @@ export const NavItem = styled.a`
     justify-content: center;
     
     svg {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
     }
+  }
+  
+  &.active span {
+    color: #ffffff;
   }
 `;
 
 export const ThemeToggleContainer = styled.div`
   margin-top: auto;
-  padding: 24px 20px;
+  padding: 16px;
   border-top: 1px solid var(--sidebar-border, #333333);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   transition: all 0.3s ease;
   background: var(--sidebar-toggle-bg, rgba(255, 255, 255, 0.02));
   
-  /* Ajusta o espaçamento para o novo toggle horizontal */
   min-height: 120px;
 `;
 
-export const NavSection = styled.div`
-  margin: 16px 0;
+export const LogoutButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: transparent;
+  border: 1px solid var(--sidebar-border, #333333);
+  border-radius: 6px;
+  color: var(--sidebar-nav-text, #b0b0b0);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
   
-  &:first-of-type {
-    margin-top: 0;
+  &:hover {
+    background: var(--sidebar-nav-hover, rgba(255, 255, 255, 0.05));
+    color: var(--sidebar-nav-hover-text, #ffffff);
+    border-color: var(--sidebar-nav-hover-border, #666666);
   }
-`;
-
-export const NavSectionTitle = styled.div`
-  padding: 0 20px 8px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--sidebar-section-title, #808080);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 8px;
+  
+  span {
+    font-size: 0.9rem;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const MobileToggle = styled.button`

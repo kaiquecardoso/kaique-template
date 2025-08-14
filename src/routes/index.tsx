@@ -6,6 +6,7 @@ import LoginPage from '../pages/public/login';
 import HomePage from '../pages/auth/home';
 import UsuariosPage from '../pages/auth/usuarios';
 import ConfiguracaoPage from '../pages/auth/configuracao';
+import ProtectedRoute from '../components/auth/ProtectedRoute';
 
 // Root Route
 const rootRoute = createRootRoute({
@@ -25,11 +26,15 @@ const loginRoute = createRoute({
   component: LoginPage,
 });
 
-// Auth Routes
+// Auth Routes - Protegidas
 const authRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/auth',
-  component: () => <Outlet />,
+  component: () => (
+    <ProtectedRoute>
+      <Outlet />
+    </ProtectedRoute>
+  ),
 });
 
 const homeRoute = createRoute({

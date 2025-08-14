@@ -2,46 +2,72 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { useTheme } from '../../contexts/ThemeContext';
 import { FiSun, FiMoon } from 'react-icons/fi';
+import styled from '@emotion/styled';
+
+const ToggleContainer = styled.div<{ $theme: string }>`
+  display: flex;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border-primary);
+`;
+
+const ToggleButton = styled(motion.button)<{ $isActive: boolean; $theme: string }>`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  
+  ${props => props.$isActive ? `
+    background: var(--color-bg-card);
+    color: var(--color-text-primary);
+    box-shadow: var(--shadow-md);
+  ` : `
+    background: transparent;
+    color: var(--color-text-tertiary);
+    
+    &:hover {
+      background: var(--color-bg-secondary);
+      color: var(--color-text-secondary);
+    }
+  `}
+`;
 
 export const ThemeToggle: React.FC = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="flex flex-col items-center gap-4">
-      {/* Toggle horizontal com botões Light/Dark */}
-      <div className={`flex rounded-lg p-1 shadow-inner ${
-        theme === 'light' ? 'bg-gray-200' : 'bg-gray-700'
-      }`}>
-        <motion.button
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+      <ToggleContainer $theme={theme}>
+        <ToggleButton
+          $isActive={theme === 'light'}
+          $theme={theme}
           onClick={() => setTheme('light')}
-          className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-            theme === 'light' 
-              ? 'bg-white text-black shadow-lg' 
-              : 'text-gray-300 hover:text-white hover:bg-gray-600'
-          }`}
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.2 }}
         >
-          <FiSun className="w-4 h-4" />
+          <FiSun style={{ width: '1rem', height: '1rem' }} />
           <span>Light</span>
-        </motion.button>
+        </ToggleButton>
         
-        <motion.button
+        <ToggleButton
+          $isActive={theme === 'dark'}
+          $theme={theme}
           onClick={() => setTheme('dark')}
-          className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-            theme === 'dark' 
-              ? 'bg-black text-white shadow-lg' 
-              : 'text-gray-300 hover:text-white hover:bg-gray-600'
-          }`}
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.2 }}
         >
-          <FiMoon className="w-4 h-4" />
+          <FiMoon style={{ width: '1rem', height: '1rem' }} />
           <span>Dark</span>
-        </motion.button>
-      </div>
-      
-    
+        </ToggleButton>
+      </ToggleContainer>
     </div>
   );
 };
