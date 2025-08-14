@@ -21,9 +21,9 @@ export const useSidebarTheme = () => {
       root.style.setProperty('--sidebar-nav-hover', 'rgba(0, 0, 0, 0.05)');
       root.style.setProperty('--sidebar-nav-hover-text', '#1a1a1a');
       root.style.setProperty('--sidebar-nav-hover-border', '#d1d5db');
-      root.style.setProperty('--sidebar-nav-active', 'rgba(0, 0, 0, 0.08)');
+      root.style.setProperty('--sidebar-nav-active', '#000000');
       root.style.setProperty('--sidebar-nav-active-text', '#ffffff');
-      root.style.setProperty('--sidebar-nav-active-border', '#ffffff');
+      root.style.setProperty('--sidebar-nav-active-border', '#000000');
       root.style.setProperty('--sidebar-nav-icon', '#6b7280');
       root.style.setProperty('--sidebar-toggle-bg', 'rgba(0, 0, 0, 0.02)');
       root.style.setProperty('--sidebar-section-title', '#6b7280');
