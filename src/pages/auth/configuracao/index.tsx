@@ -114,7 +114,7 @@ const ConfiguracaoPage: React.FC = () => {
                   />
                 </FormGroup>
                 <FormGroup>
-                  <Label>Modo Escuro</Label>
+                  <Label>modo escuro | modo claro</Label>
                   <Switch
                     checked={config.darkMode}
                     onChange={(e) => handleChange('darkMode', e.target.checked)}

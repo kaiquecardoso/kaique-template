@@ -81,6 +81,11 @@ export const FormGroup = styled.div`
   &:last-child {
     border-bottom: none;
   }
+  
+  /* Garante que a label e o toggle fiquem na mesma linha horizontal */
+  flex-direction: row;
+  flex-wrap: nowrap;
+  min-height: auto;
 `;
 
 export const Label = styled.label`
@@ -88,6 +93,8 @@ export const Label = styled.label`
   font-weight: 500;
   font-size: 0.95rem;
   transition: color 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 `;
 
 export const Input = styled.input`
